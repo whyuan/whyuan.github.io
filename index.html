@@ -47,11 +47,13 @@
     <p style="display:none">WARNING: solving huge grids may take significant time and make your browser unresponsive.</p>
     <p id="solve_status"></p>
 </div>
-<div id="nonogram_dialog" class="nonogram-dialog" style="display: none;">
-    Digits of the line (use space to separate):<br>
-    <input style="display: none;" id="selector_text" type="text" style="width: 100%"><br>
-    <button style="display: none;" id="selector_ok">OK</button>
-    <button style="display: none;" id="selector_cancel">Cancel</button>
+<div style="display: none;">
+    <div id="nonogram_dialog" class="nonogram-dialog" style="display: none;">
+        Digits of the line (use space to separate):<br>
+        <input id="selector_text" type="text" style="width: 100%"><br>
+        <button id="selector_ok">OK</button>
+        <button id="selector_cancel">Cancel</button>
+    </div>
 </div>
 <div id="svg" style="display: block;"></div>
 <div style="padding: 15px; padding-bottom: 0px">
