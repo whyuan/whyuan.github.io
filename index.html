@@ -1,12 +1,64 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>whyuan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>nonogram</title>
+    <link rel="icon" href="./asset/horse.gif" type="image/x-icon">
+    <style type="text/css">
+        .nonogram-text {
+            font-family: Arial;
+            dominant-baseline: central;
+            text-anchor: middle;
+        }
+        .nonogram-selector {
+            fill: rgba(0, 0, 0, 0.01);
+            stroke: none;
+        }
+        .nonogram-selector:hover {
+            fill: rgba(0, 0, 0, 0.1);
+            stroke: none;
+        }
+        .nonogram-dialog {
+            position: absolute;
+            padding: 15px;
+            border: 1px #bbb solid;
+            font-style: normal;
+            background-color: #eee;
+            border-radius: 3px;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="./src/teal.js"></script>
+    <script type="text/javascript" src="./src/teal.svg.js"></script>
+    <script type="text/javascript" src="./src/main.js"></script>
 </head>
-<body>
-  hello world
-  test
+
+<body style="margin: 0" onload="initialize()">
+<div id="status" style="padding: 15px; padding-bottom: 0px">
+    <p style="display:none">Specify size (<input type="text" style="width: 24px" id="width"> x
+        <input type="text" style="width: 24px" id="height">)
+        of the <a href="http://en.wikipedia.org/wiki/Nonogram">nonogram</a>
+        and click  <button id="reset">Reset</button> button to prepare the grid.<br>
+        Click on a row or a column header to open corresponded line edit dialog.<br></p>
+    <!-- 把solve按钮的名字改掉，避免功能生效 -->
+    The <button id="solve0">Solve</button> button does a magic to uncover the puzzle.<br>
+    <p style="display:none">You may provide yourself a tip by pressing <button id="onestep">One step</button> button.</p>
+    <p style="display:none">You may also use <button id="save">Save</button> button to serialize your puzzle
+        to string, and <button id="load">Load</button> to restore it.</p>
+    <p style="display:none">Click on grid to draw your own solution or to help solver.</p>
+    <p style="display:none">WARNING: solving huge grids may take significant time and make your browser unresponsive.</p>
+    <p id="solve_status"></p>
+</div>
+<div id="nonogram_dialog" class="nonogram-dialog" style="display: none;">
+    Digits of the line (use space to separate):<br>
+    <input style="display: none;" id="selector_text" type="text" style="width: 100%"><br>
+    <button style="display: none;" id="selector_ok">OK</button>
+    <button style="display: none;" id="selector_cancel">Cancel</button>
+</div>
+<div id="svg" style="display: block;"></div>
+<div style="padding: 15px; padding-bottom: 0px">
+    Who has seen the wind?<br/>
+    Neither you nor I.<br/>
+    But when the trees bow down their heads,<br/>
+    The wind is passing by.<br/>
+</div>
 </body>
 </html>
